@@ -2,11 +2,8 @@ import React from "react";
 import {
   AppBar,
   Box,
-  Drawer,
-  IconButton,
   List,
   ListItemButton,
-  ListItemText,
   Toolbar,
   Button,
   Divider,
@@ -18,71 +15,71 @@ import LogoWithText from "../../assets/images/logo-with-text2-removebg-preview.p
 
 const drawerWidth = 240;
 
-
 const Header = () => {
-    const [mobileOpen, setMobileOpen] = useState(false);
-    const handleDrawerToggle = () => {
-      setMobileOpen(!mobileOpen);
-    };
-    const drawer =(
-        <>
-          {/* Navbar */}
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
 
-            <Container
-                sx={{
-                 background: "#00040f",
-                 display: "flex",
-                 flexDirection: "column",
-                 justifyContent: { lg: "space-between", xs: "flex-start" },
-                 alignItems: "flex-start",
-                 gap: 1,
-                }}
-            >
-                <Link to ="/">
-                    <Box
-                        sx={{
-                          display: { lg: "flex", md: "flex", sm: "flex", xs: "flex" },
-                          justifyContent: {
-                             md: "flex-start",
-                             sm: "flex-start",
-                             xs: "flex-start",
-                            },
-                         alignItems: { md: "center", sm: "center", xs: "center" },
-                         width: { lg: "100%", md: "100%", sm: "100%", xs: "100%" },
-                        }}
-                    >
-                       <img src={LogoWithText} alt="logo" width="100%"></img> 
-                    </Box>
-                </Link>
+  const drawer = (
+    <>
+      {/* Navbar */}
 
-                <List
-                    sx={{
-                      width: "60%",
-                    }}
-                >
-                    <Divider
-                        color="#fff"
-                        sx={{
-                         width: "80%",
-                        }}
-                    />
-                    <Link to="/Login" className="link" onClick={handleDrawerToggle}>
-                        <ListItemButton>
-                            <Button variant="contained" color="secondary">
-                               Sign In
-                            </Button>
-                        </ListItemButton>
-                    </Link>
-                </List>
-            </Container>
-            {/* Navbar */}
-        </>
-    )
+      <Container
+        sx={{
+          background: "#00040f",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: { lg: "space-between", xs: "flex-start" },
+          alignItems: "flex-start",
+          gap: 1,
+        }}
+      >
+        <Link to="/">
+          <Box
+            sx={{
+              display: { lg: "flex", md: "flex", sm: "flex", xs: "flex" },
+              justifyContent: {
+                md: "flex-start",
+                sm: "flex-start",
+                xs: "flex-start",
+              },
+              alignItems: { md: "center", sm: "center", xs: "center" },
+              width: { lg: "100%", md: "100%", sm: "100%", xs: "100%" },
+            }}
+          >
+            <img src={LogoWithText} alt="logo" width="100%"></img>
+          </Box>
+        </Link>
+
+        <List
+          sx={{
+            width: "60%",
+          }}
+        >
+          <Divider
+            color="#fff"
+            sx={{
+              width: "80%",
+            }}
+          />
+          <Link to="/Login" className="link" onClick={handleDrawerToggle}>
+            <ListItemButton>
+              <Button variant="contained" color="secondary">
+                Sign In
+              </Button>
+            </ListItemButton>
+          </Link>
+        </List>
+      </Container>
+      {/* Navbar */}
+    </>
+  );
   return (
     <>
-        {/* Navbar */}
+      {/* Navbar */}
 
-        <Box
+      <Box
         sx={{
           position: "relative",
           top: 0,
@@ -110,22 +107,12 @@ const Header = () => {
               background: "primary",
             }}
           >
-            {/* <IconButton
-              color="secondary"
-              aria-label="open drawer"
-              edge="start"
-              onClick={handleDrawerToggle}
-              sx={{ mr: 2, display: { lg: "none" } }}
-            >
-              <MenuIcon />
-            </IconButton> */}
             <Box
               sx={{
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
                 width: "100%",
-                
               }}
             >
               <Link to="/">
@@ -138,11 +125,10 @@ const Header = () => {
                       xs: "flex-start",
                     },
                     alignItems: { md: "center", sm: "center", xs: "center" },
-                    width: { lg: "34%", sm: "34%", xs: "64%" },
-                
+                    width: { lg: "32%", sm: "32%", xs: "52%" },
                   }}
                 >
-                  <img src={LogoWithText} alt="logo" width="100%" ></img>
+                  <img src={LogoWithText} alt="logo" width="100%"></img>
                 </Box>
               </Link>
               <Link to="/login" className="link">
@@ -177,27 +163,9 @@ const Header = () => {
             </Box>
           </Toolbar>
         </AppBar>
-
-        {/* <Drawer
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          sx={{
-            display: { xs: "block", sm: "flex", md: "flex", lg: "none" },
-            height: "100%",
-            overflowY: { xs: "none" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: drawerWidth,
-              background: "#00040f",
-            },
-          }}
-        >
-          {drawer}
-        </Drawer> */}
       </Box>
-    
     </>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

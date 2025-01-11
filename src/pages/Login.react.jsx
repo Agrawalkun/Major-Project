@@ -1,25 +1,29 @@
 import { CircularProgress } from '@mui/material';
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { auth, signInWithGoogle } from "../firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Container,Box,Typography,Button} from "@mui/material";
 import GoogleIcon from "@mui/icons-material/Google";
-// import login from "../assets/images/login.svg";
+import login from "../assets/images/login.svg";
 import Header from "../components/header/header.react";
 
 function Login () {
-    const navigate = useNavigate();
+  const [user, loading] = useAuthState(auth);
+  const navigate = useNavigate();
     useEffect(()=>{
-        // if(loading){
-        //     <CircularProgress/>;
-        //     return;
-        // }
-        // if (user) navigate("/home");
+        if(loading){
+            <CircularProgress/>;
+            return;
+        }
+        if (user) navigate("/home");
     },
-    // [user,loading,navigate]
+    [user,loading,navigate]
 );
 const handleClick = async()=>{
-// signInWithGoogle();
+signInWithGoogle();
 };
+
   return (
     <>
     <Header />
@@ -41,7 +45,7 @@ const handleClick = async()=>{
             width: { lg: "40%", sm: "50%", xs: "100%" },
           }}
         >
-          {/* <img src={login} alt="login" width="100%" /> */}
+          <img src={login} alt="login" width="100%" />
         </Box>
         <Box
           sx={{
